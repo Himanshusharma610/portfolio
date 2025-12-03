@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
@@ -164,9 +169,24 @@
             </div>
         </div>
     </section>
+
+    <div class="neural-hud hidden" id="neural-hud">
+        <div class="hud-header">
+            <span class="blink-text">● LIVE_FEED</span>
+            <span id="close-hud">[X]</span>
+        </div>
+        <div class="video-wrapper">
+            <video class="input_video"></video>
+            <canvas class="output_canvas"></canvas>
+        </div>
+        <div class="scan-line"></div>
+    </div>
+
+    <button id="uplink-toggle" class="cyber-btn" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; font-size: 0.8rem; background: rgba(0,0,0,0.8);">
+        <i class="fa-solid fa-hand-sparkles"></i> ACTIVATE_HAND_TRACKING
+    </button>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
     <script src="portfolio.js"></script>
 </body>
 </html>
