@@ -309,14 +309,6 @@ h1.glitch::after {
 .social-uplinks { display: flex; gap: 20px; font-size: 2rem; margin-top: 40px; justify-content: center;}
 .social-uplinks a:hover { color: var(--neon-blue); transform: scale(1.2); text-shadow: 0 0 15px var(--neon-blue);}
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    .hero-content h1.glitch { font-size: 3rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    section { padding: 100px 5%; }
-    nav { display: none; }
-}
-
 /* ===================================
    4. NEURAL UPLINK (MediaPipe HUD) 
    =================================== */
@@ -334,17 +326,6 @@ h1.glitch::after {
     flex-direction: column;
     overflow: hidden;
     transition: all 0.5s ease;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .neural-hud {
-        width: 280px;
-        height: 210px;
-        right: 50%;
-        transform: translateX(50%); /* Center on mobile */
-        bottom: 90px;
-    }
 }
 
 .neural-hud.hidden {
@@ -403,4 +384,108 @@ h1.glitch::after {
 @keyframes scan {
     0% { top: 0%; }
     100% { top: 100%; }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN (Device Adaptation)
+   ========================================= */
+
+/* Tablet & Mobile (Screen width less than 1024px) */
+@media screen and (max-width: 1024px) {
+    section {
+        padding: 100px 5%;
+    }
+    .hero-content h1.glitch {
+        font-size: 3.5rem;
+    }
+}
+
+/* Mobile Phones (Screen width less than 768px) */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Header & Navigation Fix */
+    header {
+        padding: 15px;
+        flex-direction: column;
+        background: rgba(0, 2, 10, 0.95);
+        height: auto;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    nav {
+        display: block !important;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 5px;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+        padding: 5px;
+    }
+    nav a::before { content: none; } 
+
+    /* 2. Hero Section */
+    .hero-content h1.glitch {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    .terminal-subtitle {
+        font-size: 0.9rem;
+        min-height: 2.5em;
+    }
+
+    .cyber-btn {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* 3. Layout Stacking */
+    .about-grid, 
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* 4. Glass Cards & Skills */
+    .glass-card {
+        padding: 25px;
+        transform: none !important;
+    }
+    .card-3d-content {
+        transform: translateZ(0);
+    }
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    /* 5. HUD Adjustment */
+    .neural-hud {
+        width: 280px;
+        height: 210px;
+        right: 50%;
+        transform: translateX(50%); /* Center on mobile */
+        bottom: 90px;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 380px) {
+    .hero-content h1.glitch { font-size: 1.8rem; }
+    nav ul { gap: 10px; }
 }
